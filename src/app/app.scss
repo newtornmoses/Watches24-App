@@ -1,0 +1,39 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These 
+// styles are for the entire app and not just one component. Additionally, this 
+// file can hold Sass mixins, functions, and placeholder classes to be imported 
+// and used throughout the application.
+.item-native {
+    padding-left: unset;
+    padding-right: unset;
+    -webkit-padding-start: calc(var(--padding-start) + var(--ion-safe-area-left, 0px));
+    padding-inline-start: calc(var(--padding-start) + var(--ion-safe-area-left, 0px));
+    -webkit-padding-end: var(--padding-end);
+    padding-inline-end: var(--padding-end);
+    background: #313743;
+}
+
+ion-menu {
+    margin-left: unset;
+    margin-right: unset;
+    -webkit-margin-start: 8px;
+    margin-inline-start: auto;
+    -webkit-margin-end: 0px;
+    margin-inline-end: 0px;
+}
+
+ion-label {
+    font-size: 14px !important;
+    text-align: center;
+    padding-top: 8%;
+}
+
+ion-button.md.button.button-solid.button-has-icon-only.ion-activatable.ion-focusable.hydrated.button-small {
+    height: 18px;
+    font-size: 10px;
+}
+
+body {
+    font-size: 14px;
+}

@@ -1,0 +1,60 @@
+.welcome-card ion-img {
+    max-height: 178px;
+    overflow: hidden;
+}
+
+ion-button {
+    margin-bottom: 10%
+}
+
+
+/* Custom Skeleton Line Height and Margin */
+
+.custom-skeleton ion-skeleton-text {
+    line-height: 103px;
+}
+
+.custom-skeleton ion-skeleton-text:last-child {
+    margin-bottom: 5px;
+}
+
+ion-slides.md.slides-md.swiper-container.hydrated.swiper-container-horizontal {
+    height: 100px;
+    background: #110f0f;
+}
+
+ion-item.item.md.in-list.ion-focusable.hydrated {
+    width: 113%;
+    margin-left: -6%;
+    margin-top: -6%;
+    margin-bottom: 10%;
+}
+
+ion-img.Shop_image.md.hydrated {
+    height: 172px;
+}
+
+ion-slide.md.swiper-slide.swiper-zoom-container.hydrated.swiper-slide-active {
+    width: 100%;
+    height: min-content;
+}
+
+.sc-ion-card-md-h {
+    margin-left: unset;
+    margin-right: unset;
+    -webkit-margin-start: 10px;
+    margin-inline-start: 10px;
+    -webkit-margin-end: 10px;
+    margin-inline-end: 10px;
+    height: 290px;
+}
+
+.custom-skeleton ion-skeleton-text {
+    width: 239px !important;
+    height: 100%;
+}
+
+ion-button.ion-color.ion-color-tertiary.md.button.button-round.button-solid.ion-activatable.ion-focusable.hydrated {
+    font-size: 10px;
+    height: 27px;
+}

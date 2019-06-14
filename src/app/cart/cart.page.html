@@ -1,0 +1,128 @@
+<app-header></app-header>
+<ion-content>
+
+    <div class="cart" *ngIf="CartCollection['Total_Qty'] > 0">
+        <ion-item>
+
+            <ion-card-subtitle>Cart Items: {{CartCollection['items'].length}}</ion-card-subtitle>
+        </ion-item>
+
+
+        <ion-item *ngFor="let cart of CartCollection['items']; let i = index;">
+
+            <ion-card>
+
+
+
+                <ion-row>
+
+                    <ion-col size="4">
+                        <ion-img [src]="cart.image"></ion-img>
+                    </ion-col>
+                    <ion-col size="8">
+                        <ion-card-header>
+
+                            <ion-card-subtitle>{{cart.title}}</ion-card-subtitle>
+                        </ion-card-header>
+
+                    </ion-col>
+                </ion-row>
+
+
+
+                <ion-row>
+                    <ion-col size="2">
+                        <p class="price" style="text-align: center">QTY </p>
+
+                    </ion-col>
+
+                    <ion-col size="4">
+                        <ion-item>
+
+                            <!-- <ion-card> -->
+                            <ion-input placeholder="{{cart.Qty}}" [(ngModel)]="quantity" disabled></ion-input>
+
+                            <!-- </ion-card> -->
+                        </ion-item>
+
+                    </ion-col>
+                    <ion-col size="6">
+                        <p class="price" style="text-align: center">${{cart.price}}.00 </p>
+                        <ion-button (click)="delete(cart, i)" color="danger">
+                            <ion-icon slot="icon-only" name="trash"></ion-icon>
+                        </ion-button>
+
+
+                    </ion-col>
+
+                </ion-row>
+
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-button (click)="add(cart, i)">
+                            <ion-icon name="add-circle"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+
+                    <div class="decreaseBtn" *ngIf="cart.Qty >= 2">
+                        <ion-col size="6">
+                            <ion-button (click)="decrease(cart, i)">
+                                <ion-icon name="remove-circle"></ion-icon>
+                            </ion-button>
+                        </ion-col>
+                    </div>
+                </ion-row>
+
+
+            </ion-card>
+
+        </ion-item>
+
+
+
+    </div>
+
+    <div class="cart" *ngIf="CartCollection['Total_Qty'] > 0">
+
+        <ion-item>
+
+            <ion-row>
+                <ion-col size="12">
+                    <ion-card-subtitle>SubTotal: ${{CartCollection['Total_price']}}.00</ion-card-subtitle>
+
+                </ion-col>
+            </ion-row>
+
+
+        </ion-item>
+    </div>
+
+    <div *ngIf="CartCollection['items'] === undefined">
+
+        <ion-item>
+
+            <ion-card-subtitle>Your Cart is empty</ion-card-subtitle>
+
+        </ion-item>
+    </div>
+
+
+    <ion-row>
+
+        <ion-col size="12" *ngIf="CartCollection['Total_Qty'] > 0">
+            <ion-button expand="full" shape="round" routerLink="/address">
+                Check Out
+            </ion-button>
+        </ion-col>
+
+        <ion-col size="12">
+            <ion-button expand="full" color="secondary" shape="round" routerLink="/">
+                Continue Shopping
+            </ion-button>
+        </ion-col>
+
+
+
+    </ion-row>
+
+</ion-content>

@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<ion-content>
+    <ion-title>Login</ion-title>
+    <ion-card>
+
+
+        <ion-item>
+            <ion-label position="floating">
+                <p>Email</p>
+            </ion-label>
+            <ion-input clearInput type="email" [(ngModel)]="email"></ion-input>
+        </ion-item>
+
+
+
+
+
+
+        <ion-item>
+            <ion-label position="floating">
+                <p>Password</p>
+            </ion-label>
+            <ion-input clearInput type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+
+        <ion-button (click)="login()" color="primary" expand="full" shape="round">
+            Login
+        </ion-button>
+
+        <ion-item>
+            <p>Not yet a member ?</p>
+            <ion-button routerLink='/signup'>
+                <ion-icon slot="icon-only" name="person-add"></ion-icon> Signup
+            </ion-button>
+        </ion-item>
+
+    </ion-card>
+
+</ion-content>
+<app-footer></app-footer>

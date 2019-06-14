@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<ion-content>
+    <ion-title>Create Acccount</ion-title>
+    <ion-card>
+
+
+        <ion-item>
+            <ion-label position="floating">
+                <p>First Name</p>
+            </ion-label>
+            <ion-input clearInput type="text" [(ngModel)]="firstname" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">
+                <p>Last Name</p>
+            </ion-label>
+            <ion-input clearInput type="text" [(ngModel)]="lastname" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">
+                <p>Email</p>
+            </ion-label>
+            <ion-input clearInput type="email" [(ngModel)]="email" required></ion-input>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label position="floating">
+                <p>Password</p>
+            </ion-label>
+            <ion-input clearInput type="password" [(ngModel)]="password" required></ion-input>
+        </ion-item>
+
+
+
+        <ion-button (click)="createAccount()" color="primary" expand="full" shape="round" [disabled]="!password || !email || !lastname || !firstname">
+            Create Account
+        </ion-button>
+
+        <ion-item>
+            <p>Already a member ?</p>
+            <ion-button routerLink='/login'>
+                <ion-icon slot="icon-only" name="key"></ion-icon> Login
+            </ion-button>
+        </ion-item>
+
+    </ion-card>
+
+</ion-content>
+<app-footer></app-footer>

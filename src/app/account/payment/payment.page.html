@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<ion-content>
+
+    <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+        Back
+    </ion-button>
+
+    <ion-title>Choose Payment</ion-title>
+    <ion-card>
+        <!-- <ion-list> -->
+        <ion-radio-group>
+
+
+            <ion-card>
+                <ion-item>
+                    <ion-radio slot="start" value="Visa-MasterCard" (ionSelect)="selectedPayment('Visa-MasterCard')"></ion-radio>
+                    <ion-label>Visa-MasterCard</ion-label>
+                </ion-item>
+                <ion-card>
+                    <ion-item>
+                        <ion-img src="assets/images/Visa-MasterCard.jpg" slot="end"></ion-img>
+                    </ion-item>
+                </ion-card>
+            </ion-card>
+
+
+            <ion-card>
+                <ion-item>
+                    <ion-radio slot="start" value="PayPal" (ionSelect)="selectedPayment('PayPal')"></ion-radio>
+                    <ion-label>PayPal</ion-label>
+                </ion-item>
+                <ion-card>
+                    <ion-item>
+                        <ion-img src="assets/images/PayPal-Logo-830x553.jpg" slot="end"></ion-img>
+                    </ion-item>
+                </ion-card>
+            </ion-card>
+
+
+
+            <ion-card>
+                <ion-item>
+                    <ion-radio slot="start" value="Cash on delivery" (ionSelect)="selectedPayment('Cash on delivery')"></ion-radio>
+                    <ion-label>Cash on delivery</ion-label>
+                </ion-item>
+                <ion-card>
+                    <ion-item>
+                        <ion-img src="assets/images/cash-on-delivery-magento.png" slot="end"></ion-img>
+                    </ion-item>
+                </ion-card>
+            </ion-card>
+
+        </ion-radio-group>
+
+        <ion-button (click)="continuePayment()" color="primary" expand="full" shape="round">
+            continue
+        </ion-button>
+
+    </ion-card>
+
+    <app-footer></app-footer>
+
+</ion-content>

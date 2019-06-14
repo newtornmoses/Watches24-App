@@ -1,0 +1,119 @@
+<app-header></app-header>
+
+<ion-content>
+    <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+        Back
+    </ion-button>
+
+    <!-- Show Available address -->
+    <div class="addAddress" *ngIf="addressAvailable">
+        <ion-title>Shipping Address</ion-title>
+        <ion-list *ngFor="let Savedaddress of AddressList">
+            <ion-card>
+
+                <ion-card-subtitle>First Name: {{firstName? firstName:Savedaddress.firstName}} </ion-card-subtitle>
+                <ion-card-subtitle>Last Name: {{lastName? lastName:Savedaddress.lastName}}</ion-card-subtitle>
+                <ion-card-subtitle>Address: {{address? address:Savedaddress.address}}</ion-card-subtitle>
+                <ion-card-subtitle>City: {{city?city:Savedaddress.city}}</ion-card-subtitle>
+                <ion-card-subtitle>Country: {{country? country:Savedaddress.country}}</ion-card-subtitle>
+                <ion-card-subtitle>Mobile: {{mobile?mobile:Savedaddress.mobile}}</ion-card-subtitle>
+
+                <ion-item>
+                    <ion-button (click)="ShowAddAddress()">
+                        <ion-icon slot="icon-only" name="edit"></ion-icon>
+                        Edit
+                    </ion-button>
+                </ion-item>
+            </ion-card>
+        </ion-list>
+
+
+        <ion-button (click)="continueToPayment()" color="primary" expand="full" shape="round">
+            Continue
+        </ion-button>
+
+
+    </div>
+
+
+    <!-- Add address -->
+    <div class="addAddress" *ngIf="!addressAvailable">
+        <ion-title>Add Address</ion-title>
+        <ion-card>
+            <ion-item>
+                <ion-label position="floating">
+                    <p>First Name</p>
+                </ion-label>
+                <ion-input clearInput value="" [(ngModel)]="firstName"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    <p>Last Name</p>
+                </ion-label>
+                <ion-input clearInput value="" [(ngModel)]="lastName"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    <p>Mobile Number</p>
+                </ion-label>
+                <ion-row>
+                    <ion-col size="5">
+                        <ion-input clearInput value="+971" [(ngModel)]="dial_code"> </ion-input>
+
+                    </ion-col>
+
+
+
+                    <ion-col size="7">
+                        <ion-input clearInput placeholder="055555556" type="tel" [(ngModel)]="number"></ion-input>
+
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    <p>Address</p>
+                </ion-label>
+                <ion-input clearInput value="" [(ngModel)]="address"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    <p>Country</p>
+                </ion-label>
+
+
+                <ion-select placeholder="Select Country" (ionChange)="selectedCountry($event)" [(ngModel)]="country">
+                    <ion-select-option value="{{country.name}}" *ngFor="let country of countriesList">{{country.name}}</ion-select-option>
+
+                </ion-select>
+
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+
+                    <p>City</p>
+                </ion-label>
+                <ion-input clearInput value="" [(ngModel)]="city"></ion-input>
+            </ion-item>
+
+            <ion-button (click)="addAddress()" color="primary" expand="full" shape="round" [disabled]="!city || !country || !firstName || !lastName || !addAddress || !number">
+                Add Address
+            </ion-button>
+
+            <ion-button (click)="cancel()" color="base" expand="full" shape="round">
+                Cancel
+            </ion-button>
+
+        </ion-card>
+
+    </div>
+
+    <app-footer></app-footer>
+
+</ion-content>

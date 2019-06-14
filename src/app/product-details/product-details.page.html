@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<ion-content>
+    <div *ngIf="productDetails">
+        <ion-card class="welcome-card" *ngFor="let product of productDetails">
+            <ion-img [src]="product.image_URL" class="Shop_image"></ion-img>
+            <ion-card-header>
+                <ion-card-title>{{product.title}}</ion-card-title>
+                <ion-card-subtitle>{{product.short_description}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+
+                <p class="price" style="text-align: center">${{product.selling_price}}.00 </p>
+                <ion-row>
+
+                    <ion-button shape="round" color="tertiary" (click)="addToCart(product.id)">Add to cart</ion-button>
+
+                    <ion-button (click)="addTowishlist()" fill="outline">
+                        <ion-icon name="heart"></ion-icon>
+                    </ion-button>
+
+                </ion-row>
+
+
+            </ion-card-content>
+
+            <ion-card-subtitle>Description</ion-card-subtitle>
+            <ion-card-content>
+
+                <p class="price" style="text-align: center" [innerHtml]="product.description"> Description:</p>
+
+
+
+            </ion-card-content>
+
+
+        </ion-card>
+    </div>
+
+
+    <ion-item>
+        <ion-card>
+            <ion-card-subtitle> You May also Like</ion-card-subtitle>
+        </ion-card>
+    </ion-item>
+
+    <ion-item>
+
+        <div>
+            <ion-row style="font-size: 12px">
+                <ion-col size="6" *ngFor="let product of ProductsYouMayLike">
+                    <ion-card class="welcome-card">
+                        <ion-img [src]="product.image_URL" class="Shop_image" (click)="viewDetails(product.id,  product.Category)"></ion-img>
+                        <ion-card-header>
+
+                            <ion-card-subtitle>{{product.short_description}}</ion-card-subtitle>
+                        </ion-card-header>
+                        <ion-card-content>
+
+                            <p class="price" style="text-align: center">${{product.selling_price}}.00 </p>
+
+
+
+                        </ion-card-content>
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+        </div>
+
+
+    </ion-item>
+
+
+
+</ion-content>

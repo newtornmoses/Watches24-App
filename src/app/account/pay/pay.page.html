@@ -1,0 +1,139 @@
+<app-header></app-header>
+
+<ion-content>
+    <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-dropleft-circle"></ion-icon>
+        Back
+    </ion-button>
+
+    <ion-col size="6">
+        <ion-title> Make Payments</ion-title>
+    </ion-col>
+
+    <!-- paypal payment -->
+    <div class="creaditCard" *ngIf="PaymentMethod === 'PayPal'">
+        <ion-item>
+            <ion-card-subtitle>Total: ${{total}}</ion-card-subtitle>
+
+        </ion-item>
+
+
+        <ion-card>
+
+            <ion-card>
+                <ion-img src="assets/images/PayPal-Logo-830x553.jpg"></ion-img>
+            </ion-card>
+
+            <ion-button (click)="paypalcheckout()" color="primary" expand="full" shape="round">
+                Pay ${{total}}
+            </ion-button>
+
+        </ion-card>
+    </div>
+
+
+    <!-- Cash on delivery payment -->
+    <div class="creaditCard" *ngIf="PaymentMethod === 'Cash on delivery'">
+        <ion-item>
+            <ion-card-subtitle>COD fees: ${{COD}}</ion-card-subtitle>
+
+        </ion-item>
+        <ion-item>
+            <ion-card-subtitle>Total: ${{total + this.COD}} </ion-card-subtitle>
+
+        </ion-item>
+
+
+        <ion-card>
+
+            <ion-card>
+                <ion-img src="assets/images/cash-on-delivery-magento.png"></ion-img>
+            </ion-card>
+
+
+            <ion-button (click)="CashOnDeliverycheckout()" color="primary" expand="full" shape="round">
+                Pay ${{total+ this.COD}}
+            </ion-button>
+
+        </ion-card>
+    </div>
+
+
+    <!-- pay with visa card -->
+    <div class="creaditCard" *ngIf="PaymentMethod === 'Visa-MasterCard'">
+        <ion-item>
+            <ion-card-subtitle>Total: ${{total}}</ion-card-subtitle>
+
+        </ion-item>
+
+
+        <ion-card>
+
+            <ion-card>
+                <ion-img src="assets/images/Visa-MasterCard.jpg"></ion-img>
+            </ion-card>
+
+            <ion-item>
+
+                <ion-label position="floating">
+                    <p>Name on card</p>
+                </ion-label>
+                <ion-input clearInput value="" [(ngModel)]="name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    <p>Card Number</p>
+                </ion-label>
+                <ion-input clearInput value="" [(ngModel)]="card" type="number"></ion-input>
+            </ion-item>
+
+            <ion-row>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="floating">
+                            <p>Exp Month</p>
+                        </ion-label>
+                        <ion-select placeholder="{{expiryMonthArray[0]}}" (ionChange)="selectedMonth()" [(ngModel)]="ExpMth">
+                            <ion-select-option value="{{month}}" *ngFor="let month of expiryMonthArray">{{month}}</ion-select-option>
+
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="floating">
+                            <p>Exp Year</p>
+                        </ion-label>
+                        <ion-select placeholder="{{expiryYearArray[0]}}" (ionChange)="selectedyear()" [(ngModel)]="Expyr">
+                            <ion-select-option value="{{yr}}" *ngFor="let yr of expiryYearArray">{{yr}}</ion-select-option>
+
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-item>
+                <ion-label position="floating">
+                    <p>Cvv</p>
+                </ion-label>
+                <ion-input clearInput placeholder="044" [(ngModel)]="Cvv"></ion-input>
+            </ion-item>
+
+
+
+            <ion-button (click)="goBack()" color="base" expand="full" shape="round">
+                Back
+            </ion-button>
+
+            <ion-button (click)="checkout()" color="primary" expand="full" shape="round" [disabled]="!Cvv || !Expyr || !ExpMth || !card || !name">
+                Pay ${{total}}
+            </ion-button>
+
+        </ion-card>
+
+    </div>
+    <app-footer></app-footer>
+
+</ion-content>

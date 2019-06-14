@@ -1,0 +1,190 @@
+<app-header>
+</app-header>
+
+
+<ion-content>
+
+
+
+
+    <ion-slides pager="true" [options]="slideOpts">
+        <!-- <div *ngFor="let slide of slides"> -->
+        <ion-slide>
+            <ion-img src="assets/images/Longines-Special-UAE.jpg"></ion-img>
+        </ion-slide>
+        <ion-slide>
+            <ion-img src="assets/images/Hero-Banner-Bremont-Supersonic-Desktop.jpg"></ion-img>
+        </ion-slide>
+
+
+
+
+        <!-- </div> -->
+    </ion-slides>
+    <ion-list>
+        <ion-item>
+            <ion-img src="assets/images/men's-watches Collecion 1.jpg" (click)="loadMenProducts()"></ion-img>
+
+        </ion-item>
+        <ion-item>
+            <ion-row>
+                <ion-col size="12">
+
+                    <ion-card-subtitle>
+                        <p style="text-align:center">
+                            Featured Men Collection
+
+                        </p>
+                    </ion-card-subtitle>
+
+                </ion-col>
+            </ion-row>
+
+        </ion-item>
+
+        <ion-item *ngIf="!FeaturedMenProducts">
+            <!-- Skeleton screen -->
+            <div>
+
+
+                <div class="ion-padding custom-skeleton">
+                    <ion-skeleton-text animated style="width: 100%; height:100%"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 10%; line-height: 10px;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 60%; line-height: 10px;"></ion-skeleton-text>
+
+                </div>
+
+
+                <div class="ion-padding custom-skeleton">
+                    <ion-skeleton-text animated style="width: 100%; height:100%"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 10%; line-height: 10px;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 60%; line-height: 10px;"></ion-skeleton-text>
+
+                </div>
+
+
+
+            </div>
+
+        </ion-item>
+        <ion-item>
+
+
+            <div *ngIf="FeaturedMenProducts && FeaturedMenProducts.length > 0">
+                <ion-row>
+                    <ion-col size="6" *ngFor="let product of FeaturedMenProducts">
+                        <ion-card class="welcome-card">
+                            <ion-img [src]="product.image_URL" class="Shop_image" (click)="viewDetails(product.id,  product.Category)"></ion-img>
+                            <ion-card-header>
+
+                                <ion-card-subtitle>{{product.short_description}}</ion-card-subtitle>
+                            </ion-card-header>
+                            <ion-card-content>
+
+                                <p class="price" style="text-align: center">${{product.selling_price}}.00 </p>
+                                <ion-row>
+                                    <ion-col size="12">
+                                        <ion-button shape="round" color="tertiary" (click)="addToCart(product)">Add</ion-button>
+                                    </ion-col>
+                                </ion-row>
+
+
+
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+
+        </ion-item>
+
+
+        <ion-item>
+            <ion-img src="assets/images/women's-watches.jpg"></ion-img>
+        </ion-item>
+
+        <ion-item>
+            <ion-row>
+                <ion-col size="12">
+
+                    <ion-card-subtitle>
+                        <p style="text-align:center">
+                            Featured Women Collection
+
+                        </p>
+                    </ion-card-subtitle>
+
+                </ion-col>
+            </ion-row>
+
+        </ion-item>
+
+        <ion-item *ngIf="!FeaturedWomenProducts">
+            <!-- Skeleton screen -->
+            <div>
+
+
+                <div class="ion-padding custom-skeleton">
+                    <ion-skeleton-text animated style="width: 100%; height:100%"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 10%; line-height: 10px;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 60%; line-height: 10px;"></ion-skeleton-text>
+
+                </div>
+
+
+                <div class="ion-padding custom-skeleton">
+                    <ion-skeleton-text animated style="width: 100%; height:100%"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 10%; line-height: 10px;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 60%; line-height: 10px;"></ion-skeleton-text>
+
+                </div>
+
+
+
+            </div>
+
+        </ion-item>
+
+        <ion-item>
+
+
+
+
+            <div *ngIf="FeaturedWomenProducts && FeaturedWomenProducts.length > 0">
+                <ion-row>
+                    <ion-col size="6" *ngFor="let product of FeaturedWomenProducts">
+                        <ion-card class="welcome-card">
+                            <ion-img [src]="product.image_URL" class="Shop_image" (click)="viewDetails(product.id, product.Category)"></ion-img>
+                            <ion-card-header>
+
+                                <ion-card-subtitle>{{product.short_description}}</ion-card-subtitle>
+                            </ion-card-header>
+                            <ion-card-content>
+
+                                <p class="price" style="text-align: center">${{product.selling_price}}.00 </p>
+                                <ion-row>
+                                    <ion-col size="12">
+                                        <ion-button shape="round" color="tertiary" (click)="addToCart(product)">Add</ion-button>
+                                    </ion-col>
+                                </ion-row>
+
+
+
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </div>
+
+
+        </ion-item>
+
+        <ion-item>
+            <ion-img src="assets/images/Sharlock max.jpg"></ion-img>
+        </ion-item>
+    </ion-list>
+
+    <app-footer></app-footer>
+
+</ion-content>

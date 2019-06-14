@@ -1,0 +1,144 @@
+<app-header></app-header>
+
+<ion-content>
+
+
+
+
+    <div class="creaditCard" *ngIf="PaymentMethod === 'Visa-MasterCard'">
+        <ion-col size="6">
+            <ion-title> Make Payments</ion-title>
+        </ion-col>
+
+
+
+        <ion-card>
+
+
+            <ion-item>
+
+                <ion-label position="floating">
+                    <p>Name on card</p>
+                </ion-label>
+                <ion-input clearInput value="" [(ngModel)]="name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label position="floating">
+                    <p>Card Number</p>
+                </ion-label>
+                <ion-input clearInput value="" [(ngModel)]="card"></ion-input>
+            </ion-item>
+
+            <ion-row>
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="floating">
+                            <p>Exp Month</p>
+                        </ion-label>
+                        <ion-input clearInput value="09" [(ngModel)]="ExpMth"></ion-input>
+                    </ion-item>
+                </ion-col>
+
+                <ion-col size="6">
+                    <ion-item>
+                        <ion-label position="floating">
+                            <p>Exp Year</p>
+                        </ion-label>
+                        <ion-input clearInput value="22" [(ngModel)]="ExpMth"></ion-input>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+
+            <ion-item>
+                <ion-label position="floating">
+                    <p>Cvv</p>
+                </ion-label>
+                <ion-input clearInput value="044" [(ngModel)]="Cvv"></ion-input>
+            </ion-item>
+
+
+
+
+            <ion-button (click)="checkout()" color="primary" expand="full" shape="round">
+                Pay {{
+                <app-header></app-header>
+
+                <ion-content>
+
+
+
+
+                    <div class="creaditCard" *ngIf="PaymentMethod === 'Visa-MasterCard'">
+                        <ion-col size="6">
+                            <ion-title> Make Payments</ion-title>
+                        </ion-col>
+
+
+
+                        <ion-card>
+
+
+                            <ion-item>
+
+                                <ion-label position="floating">
+                                    <p>Name on card</p>
+                                </ion-label>
+                                <ion-input clearInput value="" [(ngModel)]="name"></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-label position="floating">
+                                    <p>Card Number</p>
+                                </ion-label>
+                                <ion-input clearInput value="" [(ngModel)]="card"></ion-input>
+                            </ion-item>
+
+                            <ion-row>
+                                <ion-col size="6">
+                                    <ion-item>
+                                        <ion-label position="floating">
+                                            <p>Exp Month</p>
+                                        </ion-label>
+                                        <ion-input clearInput value="09" [(ngModel)]="ExpMth"></ion-input>
+                                    </ion-item>
+                                </ion-col>
+
+                                <ion-col size="6">
+                                    <ion-item>
+                                        <ion-label position="floating">
+                                            <p>Exp Year</p>
+                                        </ion-label>
+                                        <ion-input clearInput value="22" [(ngModel)]="ExpMth"></ion-input>
+                                    </ion-item>
+                                </ion-col>
+                            </ion-row>
+
+                            <ion-item>
+                                <ion-label position="floating">
+                                    <p>Cvv</p>
+                                </ion-label>
+                                <ion-input clearInput value="044" [(ngModel)]="Cvv"></ion-input>
+                            </ion-item>
+
+
+
+
+                            <ion-button (click)="checkout()" color="primary" expand="full" shape="round">
+                                Pay
+                            </ion-button>
+
+                        </ion-card>
+
+                    </div>
+                    <app-footer></app-footer>
+
+                </ion-content>
+            </ion-button>
+
+        </ion-card>
+
+    </div>
+    <app-footer></app-footer>
+
+</ion-content>

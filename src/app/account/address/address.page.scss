@@ -1,0 +1,38 @@
+p {
+    size: 8px
+}
+
+.sc-ion-card-md-h {
+    margin-left: unset;
+    margin-right: unset;
+    -webkit-margin-start: 10px;
+    margin-inline-start: 7px;
+    -webkit-margin-end: 6px;
+    margin-inline-end: 5px;
+    padding: 8%;
+}
+
+p {
+    font-size: 12px;
+}
+
+ion-title.md.title-md.hydrated {
+    font-size: 18px;
+    text-align: center;
+    padding-top: 12%;
+}
+
+ion-button.md.button.button-solid.button-has-icon-only.ion-activatable.ion-focusable.hydrated.button-small {
+    height: 18px;
+    font-size: 7px;
+}
+
+ion-input {
+    font-size: 13px;
+}
+
+ion-list.md.list-md.hydrated {
+    line-height: 196%;
+    padding-left: 16%;
+    padding-right: 14%;
+}
